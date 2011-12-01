@@ -1,12 +1,3 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.7.4">
-  <compound refid="classmain" kind="class"><name>main</name>
-    <member refid="classmain_1a0877f3b412d48b8c92fa25c4b98c2f5a" kind="function"><name>main</name></member>
-  </compound>
-  <compound refid="main_8java" kind="file"><name>main.java</name>
-  </compound>
-  <compound refid="dir_e246e51eae8ac291755a4ce566dfafa5" kind="dir"><name>SuperBibloManager/src/</name>
-  </compound>
-  <compound refid="dir_434ae6682135e3f9336fa424153f22e2" kind="dir"><name>SuperBibloManager/</name>
-  </compound>
 </doxygenindex>
