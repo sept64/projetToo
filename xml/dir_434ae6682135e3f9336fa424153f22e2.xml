@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.4">
+  <compounddef id="dir_434ae6682135e3f9336fa424153f22e2" kind="dir">
+    <compoundname>SuperBibloManager/</compoundname>
+    <innerdir refid="dir_e246e51eae8ac291755a4ce566dfafa5">SuperBibloManager/src/</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/thierry/Documents/Too/projetToo/SuperBibloManager/"/>
+  </compounddef>
+</doxygen>
