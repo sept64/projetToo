@@ -5,12 +5,13 @@ public class bibliotheque
 {
     public void liste(ArrayList<document>list)           
     {
+
     for (int i= 0; i < list.size(); i++) 
         {
-           System.out.println(list.get(i).getTitre());
-           System.out.println(list.get(i).getAuteur()); 
-           System.out.println(list.get(i).getEditeur()); 
-           System.out.println(list.get(i).getGenre());
+           System.out.println(list.get(i).getTitle());
+           System.out.println(list.get(i).getAuthor());
+           System.out.println(list.get(i).getEditor());
+           System.out.println(list.get(i).getTypeBook());
            System.out.println(""); 
         }           
     }
@@ -20,7 +21,7 @@ public class bibliotheque
     int temp = 0;
     for (int i= 0; i < list.size(); i++) 
         {
-           if(list.get(i).getTitre().equals(recherche))
+           if(list.get(i).getTitle().equals(recherche))
                    {
                        temp = 1;
                    }
@@ -40,14 +41,17 @@ public class bibliotheque
     {
         bibliotheque b1 = new bibliotheque();
         ArrayList<document>listDoc = new ArrayList<document>();    
-        roman r1 = new roman("titre1","auteur1","editeur1","policer");
-        livre l2 = new livre("titre2","auteur2","editeur2");
-        roman r3 = new roman("titre3","auteur3","editeur3","thriller"); 
+        novel r1 = new novel("titre1","auteur1","editeur1","policer");
+        novel r2 = new novel("titre2","auteur2","editeur2","fantastique");
+        novel r3 = new novel("titre3","auteur3","editeur3","thriller");
         listDoc.add(r1);
-        listDoc.add(l2);
+        listDoc.add(r2);
         listDoc.add(r3);       
         b1.liste(listDoc);
-        
+        if(listDoc.get(1).getClass() == novel.class)
+        {
+            System.out.println("ZBOOB");
+        }
         b1.rechercherTitre(listDoc, "titre2");
         
         //la suppression par titre, on verra plus tard
@@ -56,7 +60,7 @@ public class bibliotheque
            String buffer = new String();
            buffer = "titre1";
 
-           if(listDoc.get(i).getTitre().equals(buffer))
+           if(listDoc.get(i).getTitle().equals(buffer))
            {
                listDoc.remove(i);
            }

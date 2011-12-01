@@ -1,36 +1,42 @@
 package bibliotheque;
 
-public class document {
+abstract class document
+{
+    public String title;
+    public String author;
     
-    public document(String titre1, String auteur1)
+    public document(String title1, String author1)
     {
-         titre  = titre1;
-         auteur = auteur1;
-    }
-    
-    public String titre;
-    public String auteur;
-        
-    public String getEditeur(){return "";};
-    public String getGenre(){return "";};
-
-    public String getAuteur() {
-        return auteur;
+         title  = title1;
+         author = author1;
     }
 
-    public void setAuteur(String auteur) {
-        this.auteur = auteur;
+    public String getAuthor()
+    {
+        return author;
     }
 
-  
-    public String getTitre() {
-        return titre;
+    public void setAuthor(String author)
+    {
+        this.author = author;
     }
 
-   
-    public void setTitre(String titre) {
-        this.titre = titre;
+
+    public String getTitle()
+    {
+        return title;
     }
-    
-    
+
+
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
+            
+    public String getEditor(){return "";};
+    public String getTypeMultimedia(){return "";};
+    public String getTypeBook(){return "";};
+    public String getTime(){return "";};
+    public String getRecordLabel(){return "";};
+    public String getProducer(){return "";};
 }
