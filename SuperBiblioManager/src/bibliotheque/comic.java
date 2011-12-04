@@ -9,7 +9,6 @@ public class comic extends book
         super(title1, author1, editor1, typeBook1);
     }
 
-
     public String getDrawer()
     {
         return drawer;
