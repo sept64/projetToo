@@ -2,7 +2,11 @@
 						*		SuperBiblioManager v1.0       *
 						***********************************************
 
+Pour compiler : installez Netbeans
 
-Have you ever wished a simple, fast and effective library multimedia ? If the answer is yes let's talk about SuperBilioManager !
+Une fois installé ouvrir le projet SuperBiblioManager, compilez et lancez. 
 
-1) How does it work ?
+Une fois lançait le programme vous donnera le choix àentre ajouter, supprimer, chercher, lister à l'écran, trier ou exporter la liste sous forme d'un fichier html.
+
+Bonne utilisation.
+
