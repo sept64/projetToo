@@ -4,7 +4,7 @@
  */
 package bibliotheque;
 
-public class comic extends book
+public final class comic extends book
 {
     public String drawer;
 
@@ -21,14 +21,10 @@ public class comic extends book
         super(title1, author1, editor1, typeBook1);
         setDrawer(drawer1);
     }
-<<<<<<< HEAD
     /**
      * Get the comic's drawer's name.
      * @return drawer
      */
-=======
-
->>>>>>> 3bc22c2a17ef77f50daa7f439d29084694618ea6
     public String getDrawer()
     {
         return drawer;
