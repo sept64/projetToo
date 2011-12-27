@@ -4,7 +4,7 @@
  */
 package bibliotheque;
 
-public final class novel extends book
+public class novel extends book
 {
     /**
      * Class novel constructor.
@@ -19,9 +19,9 @@ public final class novel extends book
     }
     
     /**
-     *      * Get all the attribut of a novel.
+     * @Override
+     * Get all the attribut of a novel.
      */
-    @Override
     public void getAll()
     {
     System.out.println(this.getTitle());
