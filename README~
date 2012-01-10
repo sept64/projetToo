@@ -2,6 +2,7 @@
 						*		SuperBiblioManager v1.0       *
 						***********************************************
 
+<<<<<<< HEAD
 
 Pour compiler : installez Netbeans
 
@@ -11,3 +12,11 @@ Une fois lançé le programme vous donnera le choix àentre ajouter, supprimer, 
 
 Bonne utilisation.
 
+=======
+Pour compiler : installez Netbeans
+
+Une fois installé ouvrir le projet SuperBiblioManager, compilez et lancez. 
+
+Une fois lançait le programme donnera le choix entre ajouter, supprimer, chercher, lister à l'écran, trier ou exporter la liste sous forme d'un fichier html.
+
+>>>>>>> 3f0c2cfab0a249d25dd5b53d1b6a834530c7ce62
