@@ -82,6 +82,7 @@ public class Fenetre extends JFrame implements ActionListener
     private JMenuItem itemA = new JMenuItem("By Author");
     private JMenuItem item5 = new JMenuItem("Exporter in HTML");
     private JMenuItem item6 = new JMenuItem("Quit");
+    private JMenuItem itemS = new JMenuItem("Save");
     private JTable tableau;
     
     /**
@@ -93,7 +94,8 @@ public class Fenetre extends JFrame implements ActionListener
             String  title[] = {"Title", "Author", "Editor","type"};
             this.tableau = new JTable(data, title);
             this.getContentPane().add(new JScrollPane(tableau));
-            this.test1.add(item6);           
+            this.test1.add(item6); 
+            this.test1.add(itemS);
             this.test3.add(itemN);
             this.test3.add(itemC);
             this.test3.add(itemM);
@@ -144,7 +146,7 @@ public class Fenetre extends JFrame implements ActionListener
             itemA.addActionListener(this);
             item5.addActionListener(this);
             item6.addActionListener(this);
-
+            itemS.addActionListener(this);
             Font police = new Font("Tahoma", Font.BOLD, 16 );
             label.setFont(police);
             label.setForeground(Color.blue);
@@ -282,7 +284,73 @@ public class Fenetre extends JFrame implements ActionListener
         container.add(pan, BorderLayout.CENTER);        
         setContentPane(container);            
     }
+    /**
+     * Save the Library's documents
+     */
     
+    public void Save()
+    {
+        this.setSize(300, 300);
+        container.removeAll();
+        this.setContentPane(container);
+        JPanel pan = new JPanel();
+        try
+	{
+	    FileWriter writer = new FileWriter("Save.txt");
+            writer.append("");
+            for (int i= 0; i < b1.list.size(); i++)
+            {
+               if(b1.list.get(i) instanceof Comic)
+               {
+               writer.append("#1COMIC\r\n");
+               writer.append(b1.list.get(i).getTitle() + "\r\n");
+               writer.append(b1.list.get(i).getAuthor() + "\r\n");
+               writer.append((((Comic) b1.list.get(i)).getEditor()) + "\r\n");
+               writer.append((((Comic) b1.list.get(i)).getType()) + "\r\n");
+               writer.append((((Comic) b1.list.get(i)).getDrawer()) + "\r\n"); 
+               }
+               if(b1.list.get(i) instanceof Novel)
+               {
+               writer.append("#2NOVEL\r\n");
+               writer.append(b1.list.get(i).getTitle() + "\r\n");
+               writer.append(b1.list.get(i).getAuthor() + "\r\n");
+               writer.append((((Novel) b1.list.get(i)).getEditor()) + "\r\n");
+               writer.append((((Novel) b1.list.get(i)).getType()) + "\r\n");
+               }
+               if(b1.list.get(i) instanceof Music)
+               {
+               writer.append("#3MUSIC\r\n ");
+               writer.append(b1.list.get(i).getTitle() + "\r\n");
+               writer.append(b1.list.get(i).getAuthor() + "\r\n");
+               writer.append((((Music) b1.list.get(i)).getTime()) + "\r\n");
+               writer.append((((Music) b1.list.get(i)).getType()) + "\r\n");
+               writer.append((((Music) b1.list.get(i)).getRecordLabel()) + "\r\n");
+               }  
+               if(b1.list.get(i) instanceof Movie)
+               {
+               writer.append("#4MOVIE\r\n ");
+               writer.append(b1.list.get(i).getTitle() + "\r\n");
+               writer.append(b1.list.get(i).getAuthor() + "\r\n");
+               writer.append((((Movie) b1.list.get(i)).getTime()) + "\r\n");
+               writer.append((((Movie) b1.list.get(i)).getType()) + "\r\n");
+               writer.append((((Movie) b1.list.get(i)).getProducer()) + "\r\n");
+               }  
+            }
+	    writer.flush();
+	    writer.close();  
+            pan.add(new JLabel("The save is a success"));
+	}
+	catch(IOException e)
+	{
+            pan.add(new JLabel("The save is a fail"));
+             System.out.println("FAIL");
+	     e.printStackTrace();
+	}
+        
+        pan.add(enterbutton2);
+        container.add(pan, BorderLayout.CENTER); 
+        this.setContentPane(container);
+    }
     /**
      * Add a comic.
      */
@@ -521,7 +589,7 @@ public class Fenetre extends JFrame implements ActionListener
     }
         
     /**
-     * Creation a the Table in the main page.
+     * Creation of a Table in the main page.
      */
     
     public void tab()
@@ -763,8 +831,7 @@ public class Fenetre extends JFrame implements ActionListener
                 if(j > -1)
                 {
                     pan.setLayout(new GridLayout(0, 1));
-                    pan.add(new JLabel("The document exist,"));
-                    pan.add(new JLabel("It is at the place "+j));
+                    pan.add(new JLabel("The document exist"));
                     pan.add(enterbutton2);
                     container.add(pan, BorderLayout.CENTER);  
                     this.setContentPane(container); 
@@ -820,6 +887,12 @@ public class Fenetre extends JFrame implements ActionListener
             if(arg0.getSource() == item6)
             {              
                 System.exit(0);
+            }
+            if(arg0.getSource() == itemS)
+            {              
+                Save();
+                tab();
+                Menu(); 
             }
             if(arg0.getSource() == itemN)
             {              
