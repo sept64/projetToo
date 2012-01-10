@@ -284,28 +284,72 @@ public class Fenetre extends JFrame implements ActionListener
         container.add(pan, BorderLayout.CENTER);        
         setContentPane(container);            
     }
-    /*
-     * Save
+    /**
+     * Save the Library's documents
      */
     
     public void Save()
     {
-     this.setSize(300, 300);
+        this.setSize(300, 300);
         container.removeAll();
-        setContentPane(container);
-        JPanel pan = new JPanel();	                
-        pan.setLayout(new GridLayout(0, 1));
-        pan.add(title);
-        pan.add(textField);
-        pan.add(author);
-        pan.add(textField2);
-        pan.add(editor);
-        pan.add(textField3);
-        pan.add(book);
-        pan.add(textField4); 
-        pan.add(enterbuttonN);
-        container.add(pan, BorderLayout.CENTER);        
-        setContentPane(container);            
+        this.setContentPane(container);
+        JPanel pan = new JPanel();
+        try
+	{
+	    FileWriter writer = new FileWriter("Save.txt");
+            writer.append("");
+            for (int i= 0; i < b1.list.size(); i++)
+            {
+               if(b1.list.get(i) instanceof Comic)
+               {
+               writer.append("#1COMIC \r\n");
+               writer.append("Title " + b1.list.get(i).getTitle() + "\r\n");
+               writer.append("Author " + b1.list.get(i).getAuthor() + "\r\n");
+               writer.append("Editor " + (((Comic) b1.list.get(i)).getEditor()) + "\r\n");
+               writer.append("Type of comic " + (((Comic) b1.list.get(i)).getType()) + "\r\n");
+               writer.append("Drawer " + (((Comic) b1.list.get(i)).getDrawer()) + "\r\n"); 
+               }
+               if(b1.list.get(i) instanceof Novel)
+               {
+               writer.append("#2NOVEL \r\n");
+               writer.append("Title " + b1.list.get(i).getTitle() + "\r\n");
+               writer.append("Author " + b1.list.get(i).getAuthor() + "\r\n");
+               writer.append("Editor " + (((Novel) b1.list.get(i)).getEditor()) + "\r\n");
+               writer.append("Type of book " + (((Novel) b1.list.get(i)).getType()) + "\r\n");
+               }
+               if(b1.list.get(i) instanceof Music)
+               {
+               writer.append("#3MUSIC \r\n ");
+               writer.append("Title " + b1.list.get(i).getTitle() + "\r\n");
+               writer.append("Author " + b1.list.get(i).getAuthor() + "\r\n");
+               writer.append("Duration " + (((Music) b1.list.get(i)).getTime()) + "\r\n");
+               writer.append("Type of music " + (((Music) b1.list.get(i)).getType()) + "\r\n");
+               writer.append("Record label " + (((Music) b1.list.get(i)).getRecordLabel()) + "\r\n");
+               }  
+               if(b1.list.get(i) instanceof Movie)
+               {
+               writer.append("#4MOVIE \r\n ");
+               writer.append("Title " + b1.list.get(i).getTitle() + "\r\n");
+               writer.append("Author " + b1.list.get(i).getAuthor() + "\r\n");
+               writer.append("Duration " + (((Movie) b1.list.get(i)).getTime()) + "\r\n");
+               writer.append("Type of movie " + (((Movie) b1.list.get(i)).getType()) + "\r\n");
+               writer.append("Producer " + (((Movie) b1.list.get(i)).getProducer()) + "\r\n");
+               }  
+            }
+	    writer.flush();
+	    writer.close();  
+            pan.add(new JLabel("The save is a success"));
+	}
+	catch(IOException e)
+	{
+            pan.add(new JLabel("The save is a fail"));
+             System.out.println("FAIL");
+	     e.printStackTrace();
+	}
+        
+        pan.add(enterbutton2);
+        container.add(pan, BorderLayout.CENTER); 
+        this.setContentPane(container);
     }
     /**
      * Add a comic.
